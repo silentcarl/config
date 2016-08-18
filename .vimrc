@@ -78,7 +78,8 @@ Bundle 'asins/vimcdoc'
 Bundle 'scrooloose/nerdtree'
 nmap <Leader>f :NERDTreeToggle<CR>
 " 关闭vim时，如果打开的文件除了NERDTree没有其他文件时，它自动关闭 https://github.com/scrooloose/nerdtree/issues/21
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") &&b:NERDTreeType == "primary") | q | endif
+" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") &&b:NERDTreeType == "primary") | q | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 " 打开vim时自动打开NERDTree
 autocmd vimenter * NERDTree
 " autocmd VimEnter * wincmd p 
